@@ -10,12 +10,3 @@
 # Nest.js - Criarção de API Rest
 # Integração com RabbitMQ e Enconder de video
 # Testes E2E (End-to-End)
-
-
-# Extensão para criar diagramas (PlantUML)
-# Dependecias do PlantUML -> sudo apt install default-jre
-# Dependecias do PlantUML -> sudo apt install graphviz
-# npm init -y
-# npm install typescript @types/node --save-dev
-# npm install ts-node --save-dev
-# npx tsc --init
