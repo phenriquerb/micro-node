@@ -171,6 +171,5 @@ describe("Category Unit Tests", () => {
         expect(category.name).toBe("Documentary");
         expect(category.description).toBe("some description");
     });
-
 });
 
