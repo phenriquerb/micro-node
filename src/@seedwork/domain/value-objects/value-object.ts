@@ -1,6 +1,5 @@
 import {deepFreeze} from "../utils/object";
 
-// noinspection TypeScriptValidateTypes
 export default abstract class ValueObject<Value = any> {
     protected readonly _value: Value;
 
