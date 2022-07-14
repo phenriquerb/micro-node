@@ -1,9 +1,9 @@
-import {RepositoryInterface} from "./repository-contracts";
+import {RepositoryInterface, SeachableRepositoryInterface} from "./repository-contracts";
 import Entity from "../entity/entity";
 import UniqueEntityId from "../value-objects/unique-entity-id.vo";
 import NotFoundError from "../errors/not-found.error";
 
-export default abstract class InMemoryRepository<E extends Entity> implements RepositoryInterface<E> {
+export abstract class InMemoryRepository<E extends Entity> implements RepositoryInterface<E> {
     items: E[] = [];
 
     async insert(entity: E): Promise<void> {
@@ -12,11 +12,7 @@ export default abstract class InMemoryRepository<E extends Entity> implements Re
 
     async findById(id: string | UniqueEntityId): Promise<E> {
         const _id = `${id}`;
-        const item = this.items.find(i => i.id === _id );
-        if(!item) {
-            throw new Error('Entity Not Found');
-        }
-        return item;
+        return this._get(_id);
     }
 
     async findAll(): Promise<E[]> {
@@ -43,4 +39,14 @@ export default abstract class InMemoryRepository<E extends Entity> implements Re
         }
         return item;
     }
+}
+
+export abstract class InMemorySearchableRepository<E extends Entity>
+    extends InMemoryRepository<E>
+    implements SeachableRepositoryInterface<E, any, any>
+{
+    search(props: any): Promise<any> {
+        throw new Error("Method not implemented");
+    }
+
 }

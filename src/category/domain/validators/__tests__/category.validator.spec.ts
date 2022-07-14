@@ -1,4 +1,4 @@
-import CategoryValidatorFactory, {CategoryRules, CategoryValidator} from "./category.validator";
+import CategoryValidatorFactory, {CategoryRules, CategoryValidator} from "../category.validator";
 
 describe("CategoryValidator Tests", () => {
     let validator: CategoryValidator;
